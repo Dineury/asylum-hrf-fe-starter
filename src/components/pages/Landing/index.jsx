@@ -6,12 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
 import {decodeBase64} from '../../../utils/decodeBase64.js';
 
-const imgObj = [
-  { src: barGraph, caption: "Search Grant Rates By Office", id: 1},
-  { src: pieChart, caption: "Search Grant Rates By Nationality", id:2 },
-  { src: lineGraph, caption: "Search Grant Rates Over Time", id: 3}
-]
-
 const infoObj = [
   {id: 4,number: '36%', text: "By the end of the Trump administration, the average asylum office\ngrant rate had fallen 36% from an average of 44 percent in fiscal year\n2016 to 28 percent in fiscal year 2020." },
   {id: 5,number: '5%', text: "The New York asylum office grant rate dropped to 5 percent in fiscal\nyear 2020." },
@@ -40,34 +34,50 @@ export const LandingPage = () => {
 
   const handleReadMore = () => {
     // TODO: navigate to the humanrightsfirst.org homepage
+    
   };
 
   return (
-    <div className='flex-c w-[100vw] secondary-c'>
+    <div className='flex-c w-[100vw] secondary-c items-center'>
+      <div className="w-full mx-auto">
 
+        <h1 className='text-6xl text-white bg-[#666555] ' >Asylum Office Grant Rate Tracker</h1>
+        <p className='  text-white bg-[#666555] p-8' >The asylum Office Grant Rate Tracker provides asylum seekers, researchers, policymakers,
+           and the public an interactive tool to explore USCIS data on Asylum Office decisions</p>
+  
       <div className="flex flex-row justify-center" > 
-       {
-        imgObj.map(img => {
-          return (
-            <div key={img.id} >
-            <img src={img.src} className='m-5 w-70 h-60 m' /> 
-        <p>{img.caption}</p>
-            </div>
-          )
-        })
-       }
+      <div>
+            <img src={barGraph} className='m-5 w-[530px] h-[320px] mt-[100px]' /> 
+        <p className='text-2xl' >Search Grant Rates By Office</p>
 
-        
       </div>
+
+      <div>
+            <img src={pieChart} className='m-5 w-[380px] h-[300px] mt-[100px]' /> 
+        <p className='text-2xl' >Search Grant Rates By Nationality</p>
+      </div>
+
+      <div>
+            <img src={lineGraph} className='m-5 w-[530px] h-[320px] mt-[100px]' /> 
+        <p className='text-2xl' >Search Grant Rates Over Time</p>
+      </div>
+            </div>
+
+        <div className='flex flex-row p-10 justify-center ' >
+            <button className='m-4  bg-[#a0a098]  text-[#f9f9f9] p-[7px] text-1xl font-bold ' >View the Data</button>
+            <button className='m-4  bg-[#a0a098] text-[#f9f9f9] p-[7px] text-1xl font-bold ' >Download the Data</button>
+        </div>
+
+      
       <br></br>
       <div className='flex flex-row justify-around'>
-       <img src={paperStack} className='w-[45em] h-[27em] justify-self-center p-10 rounded-[50px] '/> 
-       <p className='content-center pr-[100px] text-sm '  >Human Rights First has created a search tool to give you a user-friendly way to explore a<br></br>data set of asylum decisions between FY 2016 and May 2021 
+       <img src={paperStack} className='w-[55em] h-[30em] justify-self-center p-10 rounded-[50px] '/> 
+       <p className='content-center pr-[100px] text-xl'  >Human Rights First has created a search tool to give you a user-friendly way to explore a<br></br>data set of asylum decisions between FY 2016 and May 2021 
         by the USCIS Asylum Office,<br></br> which we received through a Freedom of Information Act request. You can search for<br></br> information on asylum grant rates by year, nationality, and asylum office, 
         visualize the <br></br>data with charts and heat maps, and download the data set.</p>
       </div>
       
-       <h2 className='text-4xl m-20 ' >Systemic Disparity Insights </h2>
+       <h2 className='text-4xl m-24 ' >Systemic Disparity Insights </h2>
        
        <div className='flex flex-row justify-evenly' >
        {
@@ -81,11 +91,15 @@ export const LandingPage = () => {
         })
        }
        </div>
+       <div>
+       <button className='m-5 mt-14  primary-c  text-[#f9f9f9] p-[8px]  pr-[15px] pl-[15px]'  >Read More </button>
+       </div>
+
 
        <div className='flex-c' >
         <button onClick={scrollToTop} className='m-10' >Back to Top ^</button>
        </div>
-
+</div>
     </div>
   );
 };
