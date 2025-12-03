@@ -5,7 +5,7 @@ import paperStack from '../../../assets/paper-stack.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
 import { decodeBase64 } from '../../../utils/decodeBase64.js';
-
+import { NavLink } from 'react-router-dom';
 const infoObj = [
   {
     id: 4,
@@ -99,7 +99,9 @@ export const LandingPage = () => {
           })}
         </div>
         <div>
+          <NavLink to='https://www.humanrightsfirst.org/'>
           <button className='m-5 mt-14  primary-c  text-[#f9f9f9] p-[8px]  pr-[15px] pl-[15px]'>Read More </button>
+          </NavLink>
         </div>
 
         <div className='flex-c'>
